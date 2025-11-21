@@ -375,7 +375,7 @@ For technical support or questions about the dashboard:
 
 ## 📄 License
 
-Copyright © 2024 Athenian Group. All rights reserved.
+Copyright © 2025 Athenian Group. All rights reserved.
 
 This dashboard is proprietary software developed specifically for the City of Kent Municipal Relocation project. Unauthorized copying, distribution, or modification is prohibited.
 
