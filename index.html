@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City of Kent Municipal Relocation - Project Dashboard | Athenian Group</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="images/athenian-logo.png" alt="Athenian Group Logo" class="logo">
+                </div>
+                <div class="header-text">
+                    <h1>City of Kent Municipal Relocation</h1>
+                    <p class="subtitle">Project Management Dashboard</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="dateRange">
+                        <i class="fas fa-calendar-alt"></i> Date Range:
+                    </label>
+                    <select id="dateRange" class="filter-select">
+                        <option value="all">All Time</option>
+                        <option value="ytd">Year to Date</option>
+                        <option value="q4">Q4 2024</option>
+                        <option value="q3">Q3 2024</option>
+                        <option value="q2">Q2 2024</option>
+                        <option value="q1">Q1 2024</option>
+                        <option value="last6months">Last 6 Months</option>
+                        <option value="last3months">Last 3 Months</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="categoryFilter">
+                        <i class="fas fa-filter"></i> Category:
+                    </label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="Site Preparation & Demolition">Site Preparation & Demolition</option>
+                        <option value="Building Construction">Building Construction</option>
+                        <option value="Interior Fit-out & Finishes">Interior Fit-out & Finishes</option>
+                        <option value="Technology Infrastructure">Technology Infrastructure</option>
+                        <option value="Furniture & Equipment">Furniture & Equipment</option>
+                        <option value="Professional Services">Professional Services</option>
+                        <option value="Contingency">Contingency</option>
+                    </select>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="resetFilters" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button id="exportData" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-section">
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #1B365D 0%, #2a4a7f 100%);">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Total Budget</h3>
+                        <p class="kpi-value" id="totalBudget">$0</p>
+                        <p class="kpi-change">Approved Budget</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #C9A661 0%, #d4b875 100%);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Actual Spend</h3>
+                        <p class="kpi-value" id="actualSpend">$0</p>
+                        <p class="kpi-change" id="spendPercentage">0% of budget</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #28a745 0%, #34c759 100%);">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Budget Variance</h3>
+                        <p class="kpi-value" id="budgetVariance">$0</p>
+                        <p class="kpi-change" id="variancePercentage">0% variance</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Change Orders</h3>
+                        <p class="kpi-value" id="changeOrderCount">0</p>
+                        <p class="kpi-change" id="changeOrderValue">$0 impact</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #dc3545 0%, #f44336 100%);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Active Risks</h3>
+                        <p class="kpi-value" id="activeRisks">0</p>
+                        <p class="kpi-change" id="riskExposure">$0 exposure</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #6f42c1 0%, #8e5cd6 100%);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3 class="kpi-label">Project Health</h3>
+                        <p class="kpi-value" id="projectHealth">0</p>
+                        <p class="kpi-change" id="healthStatus">Status</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <!-- Budget vs Actual Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-chart-bar"></i>
+                            Budget vs Actual by Category
+                        </h2>
+                        <button class="export-chart-btn" data-chart="budgetChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Spend Timeline Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-chart-line"></i>
+                            Spend Plan vs Actual Timeline
+                        </h2>
+                        <button class="export-chart-btn" data-chart="spendTimelineChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="spendTimelineChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Change Orders Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-exchange-alt"></i>
+                            Change Orders by Category
+                        </h2>
+                        <button class="export-chart-btn" data-chart="changeOrdersChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="changeOrdersChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Risk Matrix Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-shield-alt"></i>
+                            Risk Expected vs Actual Impact
+                        </h2>
+                        <button class="export-chart-btn" data-chart="riskChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Budget Allocation Pie Chart -->
+                <div class="chart-card chart-card-half">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-pie-chart"></i>
+                            Budget Allocation
+                        </h2>
+                        <button class="export-chart-btn" data-chart="budgetPieChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="budgetPieChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Change Order Status Donut Chart -->
+                <div class="chart-card chart-card-half">
+                    <div class="chart-header">
+                        <h2>
+                            <i class="fas fa-tasks"></i>
+                            Change Order Status
+                        </h2>
+                        <button class="export-chart-btn" data-chart="changeOrderStatusChart">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="changeOrderStatusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Tables Section -->
+            <div class="tables-section">
+                <!-- Risk Register Table -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h2>
+                            <i class="fas fa-list"></i>
+                            Risk Register
+                        </h2>
+                        <button class="export-table-btn" data-table="riskTable">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="riskTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Risk Description</th>
+                                    <th>Category</th>
+                                    <th>Probability</th>
+                                    <th>Expected Impact</th>
+                                    <th>Actual Impact</th>
+                                    <th>Status</th>
+                                    <th>Mitigation Strategy</th>
+                                </tr>
+                            </thead>
+                            <tbody id="riskTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Change Order Log Table -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h2>
+                            <i class="fas fa-clipboard-list"></i>
+                            Change Order Log
+                        </h2>
+                        <button class="export-table-btn" data-table="changeOrderTable">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="changeOrderTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>CO #</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Cost Impact</th>
+                                    <th>Schedule Impact</th>
+                                    <th>Status</th>
+                                    <th>Justification</th>
+                                </tr>
+                            </thead>
+                            <tbody id="changeOrderTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Athenian Group. All rights reserved.</p>
+                <p>Last Updated: <span id="lastUpdated">Loading...</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

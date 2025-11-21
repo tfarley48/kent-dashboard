@@ -1,0 +1,390 @@
+================================================================================
+CITY OF KENT MUNICIPAL RELOCATION DASHBOARD
+File Structure and Inventory
+================================================================================
+
+Project: City of Kent Municipal Relocation Dashboard
+Client: City of Kent, Washington
+Contractor: Athenian Group
+Version: 1.0.0
+Date: December 2024
+
+================================================================================
+COMPLETE FILE LISTING
+================================================================================
+
+Root Directory
+│
+├── index.html                          (15 KB) ⭐ MAIN FILE - Open this
+│   └── Main dashboard page with all visualizations
+│
+├── css/
+│   └── styles.css                      (17 KB)
+│       └── Complete styling with Athenian Group branding
+│
+├── js/
+│   ├── data.js                         (12 KB) ⭐ UPDATE THIS FILE
+│   │   └── All project data (budget, risks, change orders)
+│   │
+│   ├── charts.js                       (22 KB)
+│   │   └── Chart.js configurations for 6 interactive charts
+│   │
+│   └── main.js                         (14 KB)
+│       └── Dashboard logic, KPIs, filters, exports
+│
+├── images/
+│   └── athenian-logo.png              (19 KB)
+│       └── Athenian Group corporate logo
+│
+├── README.md                           (12 KB) 📖 Start here
+│   └── Complete documentation and reference guide
+│
+├── QUICK-START-GUIDE.md                (9 KB) 🚀 3-step setup
+│   └── Fast setup instructions to get running
+│
+├── DATA-UPDATE-INSTRUCTIONS.md         (13 KB) 📝 Data guide
+│   └── Detailed guide for updating project data
+│
+├── PROJECT-SUMMARY.md                  (14 KB) 📊 Executive overview
+│   └── Project details and implementation guide
+│
+└── FILE-STRUCTURE.txt                  This file 📂
+    └── Complete file inventory and descriptions
+
+================================================================================
+FILE DESCRIPTIONS
+================================================================================
+
+APPLICATION FILES (Core Dashboard)
+-----------------------------------
+
+1. index.html (⭐ OPEN THIS FILE)
+   - Main dashboard page
+   - Contains all HTML structure
+   - Includes 6 KPI cards
+   - Displays 6 interactive charts
+   - Shows 2 data tables (Risks & Change Orders)
+   - Fully responsive layout
+   - TO USE: Double-click to open in browser
+
+2. css/styles.css
+   - Complete styling for dashboard
+   - Athenian Group color scheme (Navy #1B365D, Gold #C9A661)
+   - Responsive design breakpoints
+   - Print-optimized styles
+   - Professional typography (Inter font)
+   - Animations and transitions
+   - TO CUSTOMIZE: Edit color variables at top of file
+
+3. js/data.js (⭐ UPDATE THIS FILE REGULARLY)
+   - All project data storage
+   - Budget vs actual (7 categories)
+   - Spend timeline (monthly data)
+   - Change orders (9+ items)
+   - Risk register (9+ risks)
+   - Project information
+   - Milestones
+   - TO UPDATE: Open in text editor, modify values, save, refresh browser
+
+4. js/charts.js
+   - Chart.js configurations
+   - 6 chart types configured
+   - Athenian Group colors applied
+   - Interactive tooltips
+   - Export functionality
+   - TO MODIFY: Advanced users only - chart customization
+
+5. js/main.js
+   - Dashboard initialization
+   - KPI calculations (6 metrics)
+   - Filter logic (date range, category)
+   - Table population (risks, change orders)
+   - Export functions (PNG, CSV, JSON)
+   - Keyboard shortcuts
+   - TO MODIFY: Advanced users only - functionality changes
+
+6. images/athenian-logo.png
+   - Athenian Group corporate logo
+   - Displayed in dashboard header
+   - White version (inverted via CSS)
+   - Size: 19 KB (optimized)
+   - TO REPLACE: Upload new logo with same filename
+
+DOCUMENTATION FILES
+-------------------
+
+7. README.md (📖 START HERE)
+   - Complete documentation
+   - Feature descriptions
+   - Setup instructions
+   - Data structure details
+   - Browser compatibility
+   - Technical specifications
+   - USE: Read for complete understanding
+
+8. QUICK-START-GUIDE.md (🚀 3 STEPS)
+   - Fast setup guide
+   - 3-step process
+   - Feature exploration
+   - Data update basics
+   - Success checklist
+   - USE: For quick implementation
+
+9. DATA-UPDATE-INSTRUCTIONS.md (📝 DATA GUIDE)
+   - Detailed data update guide
+   - Section-by-section instructions
+   - Code examples
+   - Common mistakes and fixes
+   - Validation checklist
+   - Troubleshooting
+   - USE: When updating project data
+
+10. PROJECT-SUMMARY.md (📊 EXECUTIVE OVERVIEW)
+    - Executive summary
+    - Project details
+    - Technical specifications
+    - Deployment options
+    - Implementation checklist
+    - Success metrics
+    - USE: For stakeholder presentations
+
+11. FILE-STRUCTURE.txt (📂 YOU ARE HERE)
+    - Complete file inventory
+    - File descriptions
+    - Usage instructions
+    - File relationships
+    - Quick reference
+    - USE: To understand project structure
+
+================================================================================
+TOTAL PROJECT SIZE
+================================================================================
+
+Application Files:      ~99 KB
+Documentation Files:    ~48 KB
+Images:                 ~19 KB
+--------------------------------
+TOTAL:                 ~166 KB
+
+(Extremely lightweight and fast-loading!)
+
+================================================================================
+QUICK REFERENCE
+================================================================================
+
+MOST IMPORTANT FILES TO KNOW:
+------------------------------
+
+1. index.html
+   ⭐ Open this file to view dashboard
+   📍 Location: Root directory
+   🎯 Action: Double-click to open in browser
+
+2. js/data.js
+   ⭐ Update this file to change dashboard data
+   📍 Location: js/ folder
+   🎯 Action: Edit with text editor, save, refresh browser
+
+3. README.md
+   ⭐ Read this for complete documentation
+   📍 Location: Root directory
+   🎯 Action: Open with any text editor or Markdown viewer
+
+FILES YOU'LL UPDATE:
+--------------------
+✏️ js/data.js         - Weekly/monthly (project data)
+✏️ images/logo.png     - Rarely (if rebranding)
+✏️ css/styles.css      - Rarely (if customizing colors)
+
+FILES YOU WON'T TOUCH:
+----------------------
+🔒 index.html          - Structure (modify only if adding features)
+🔒 js/charts.js        - Chart configs (stable)
+🔒 js/main.js          - Dashboard logic (stable)
+🔒 Documentation files - Reference only
+
+================================================================================
+FILE DEPENDENCIES
+================================================================================
+
+index.html depends on:
+    └── css/styles.css
+    └── js/data.js
+    └── js/charts.js
+    └── js/main.js
+    └── images/athenian-logo.png
+    └── External CDNs:
+        - Chart.js (charts library)
+        - Font Awesome (icons)
+        - Google Fonts (typography)
+
+js/charts.js depends on:
+    └── Chart.js (loaded via CDN)
+    └── js/data.js (data source)
+
+js/main.js depends on:
+    └── js/data.js (data source)
+    └── js/charts.js (chart instances)
+
+⚠️ IMPORTANT: All files must be present for dashboard to work correctly!
+
+================================================================================
+EXTERNAL DEPENDENCIES (Loaded via CDN)
+================================================================================
+
+The dashboard uses these external libraries (loaded from internet):
+
+1. Chart.js v4.4.0
+   - Purpose: Interactive charts
+   - Source: cdn.jsdelivr.net
+   - Size: ~190 KB (cached by browser)
+   - Required: YES
+
+2. Font Awesome v6.4.0
+   - Purpose: Icons throughout dashboard
+   - Source: cdn.jsdelivr.net
+   - Size: ~30 KB (CSS only)
+   - Required: YES
+
+3. Google Fonts (Inter)
+   - Purpose: Professional typography
+   - Source: fonts.googleapis.com
+   - Size: ~20 KB (font files)
+   - Required: Recommended (falls back to system fonts)
+
+⚠️ Internet connection required on first load to download these libraries.
+   After first load, browser caches them for offline use.
+
+================================================================================
+FOLDER STRUCTURE
+================================================================================
+
+city-of-kent-dashboard/
+│
+├── 📄 index.html                  ⭐ MAIN DASHBOARD FILE
+│
+├── 📁 css/
+│   └── 📄 styles.css              Complete styling
+│
+├── 📁 js/
+│   ├── 📄 data.js                 ⭐ PROJECT DATA (UPDATE THIS)
+│   ├── 📄 charts.js               Chart configurations
+│   └── 📄 main.js                 Dashboard logic
+│
+├── 📁 images/
+│   └── 🖼️ athenian-logo.png       Athenian Group logo
+│
+├── 📖 README.md                   Complete documentation
+├── 📖 QUICK-START-GUIDE.md        3-step setup
+├── 📖 DATA-UPDATE-INSTRUCTIONS.md Data guide
+├── 📖 PROJECT-SUMMARY.md          Executive overview
+└── 📖 FILE-STRUCTURE.txt          This file
+
+⚠️ CRITICAL: Maintain this exact folder structure when deploying!
+
+================================================================================
+GETTING STARTED
+================================================================================
+
+FOR FIRST-TIME USERS:
+---------------------
+1. Read README.md (5 minutes)
+2. Read QUICK-START-GUIDE.md (3 minutes)
+3. Open index.html (instant)
+4. Explore the dashboard (5 minutes)
+5. Read DATA-UPDATE-INSTRUCTIONS.md (10 minutes)
+6. Update js/data.js with your data (varies)
+
+FOR EXPERIENCED USERS:
+----------------------
+1. Open index.html
+2. Update js/data.js
+3. Refresh browser
+4. Done!
+
+FOR DEPLOYMENT:
+---------------
+1. Upload all files to web server (maintain folder structure)
+2. Access via URL
+3. Share with team
+4. Update data regularly
+
+================================================================================
+BROWSER REQUIREMENTS
+================================================================================
+
+✅ SUPPORTED BROWSERS:
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Opera 75+
+
+❌ NOT SUPPORTED:
+- Internet Explorer (use Edge instead)
+- Very old mobile browsers (pre-2020)
+
+================================================================================
+SUPPORT & TROUBLESHOOTING
+================================================================================
+
+COMMON ISSUES:
+--------------
+
+Issue: Dashboard doesn't load
+Fix: Check that all files are present in correct folders
+
+Issue: Charts don't show
+Fix: Check internet connection (for CDN libraries)
+
+Issue: Data doesn't update
+Fix: Hard refresh browser (Ctrl+F5 or Cmd+Shift+R)
+
+Issue: Export doesn't work
+Fix: Check browser popup blocker settings
+
+GETTING HELP:
+-------------
+1. Check README.md for answers
+2. Check browser console (F12) for error messages
+3. Review DATA-UPDATE-INSTRUCTIONS.md
+4. Contact Athenian Group support
+
+================================================================================
+VERSION INFORMATION
+================================================================================
+
+Dashboard Version: 1.0.0
+Release Date: December 2024
+Project: City of Kent Municipal Relocation
+Client: City of Kent, Washington
+Developer: Athenian Group
+Status: Production Ready ✅
+
+================================================================================
+COPYRIGHT & LICENSE
+================================================================================
+
+Copyright © 2024 Athenian Group. All rights reserved.
+
+This dashboard is proprietary software developed specifically for the
+City of Kent Municipal Relocation project. Unauthorized copying,
+distribution, or modification is prohibited.
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+Developer: Athenian Group
+Project: City of Kent Municipal Relocation Dashboard
+Version: 1.0.0
+Support: Contact Athenian Group for technical support
+
+================================================================================
+END OF FILE STRUCTURE DOCUMENT
+================================================================================
+
+Last Updated: December 2024
+Document Version: 1.0
+
+For the latest information, please refer to README.md
